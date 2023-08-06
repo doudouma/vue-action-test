@@ -46,7 +46,6 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          repository-name: doudouma/vue-action-test
           branch: master
           folder: ../.vitepress/dist # The folder the action should deploy.
           ssh-key: ${{ secrets.DELOY_KEY }}
