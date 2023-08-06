@@ -26,6 +26,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: 安装node.js
         uses: actions/setup-node@v1
         with: 
           node-version:"14.x"
