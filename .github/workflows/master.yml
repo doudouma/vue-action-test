@@ -12,31 +12,32 @@ on:
 
 jobs:
   # Single deploy job since we're just deploying
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+    build:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v3
 
-      - name: 安装node.js
-        # 使用action库  actions/setup-node安装node
-        uses: actions/setup-node@main
-        with:
-          node-version: lts/*
+        - name: 安装node.js
+          # 使用action库  actions/setup-node安装node
+          uses: actions/setup-node@main
+          with:
+            node-version: lts/*
 
-            # 安装依赖
-      - name: 安装依赖
-        run: yarn
+              # 安装依赖
+        - name: 安装依赖
+          run: yarn
 
-      # 打包
-      - name: 打包
-        run: yarn run docs:build
+        # 打包
+        - name: 打包
+          run: yarn run docs:build
 
-      - name: copy file via ssh password
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.REMOTE_HOST}}
-          username: ${{ secrets.REMOTE_USER }}
-          password: ${{ secrets.REMOTE_PASS }}
-          port: 23334
-          source: './vitepress/dist'
-          target: ${{ secrets.REMOTE_TARGET }}
+        - name: copy file via ssh password
+          uses: appleboy/scp-action@master
+          with:
+            host: ${{ secrets.REMOTE_HOST}}
+            username: ${{ secrets.REMOTE_USER }}
+            password: ${{ secrets.REMOTE_PASS }}
+            port: 23334
+            source: './vitepress/dist'
+            target: ${{ secrets.REMOTE_TARGET }}
