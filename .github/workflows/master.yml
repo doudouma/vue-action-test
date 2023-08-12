@@ -8,13 +8,7 @@ name: Deploy static content to Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["master"]
-
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+    branches: ["main"]
 
 jobs:
   # Single deploy job since we're just deploying
@@ -26,30 +20,27 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        uses: actions/setup-node@v1
-        with: 
-          node-version:"14.x"
-      - name: Cache node Modules
-        uses: actions/cache@v1
-        id: cache
-        with: 
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-      - name: Install Dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: npm i
-      - name: Generates Page
-        run: |
-        npm run docs:build
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
+
+      - name: 安装node.js
+        # 使用action库  actions/setup-node安装node
+        uses: actions/setup-node@main
         with:
-          repository-name: doudouma/vue-action-test
-          branch: master
-          folder: ../.vitepress/dist # The folder the action should deploy.
-          ssh-key: ${{ secrets.DELOY_KEY }}
+          node-version: lts/*
 
+            # 安装依赖
+      - name: 安装依赖
+        run: npm install
 
+      # 打包
+      - name: 打包
+        run: yarn run docs:build
 
+      - name: copy file via ssh password
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.REMOTE_HOST}}
+          username: ${{ secrets.REMOTE_USER }}
+          password: ${{ secrets.REMOTE_PASS }}
+          port: 23334
+          source: './vitepress/dist'
+          target: ${{ secrets.REMOTE_TARGET }}
