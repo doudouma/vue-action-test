@@ -42,4 +42,5 @@ jobs:
             port: 22
             source: '.vitepress/dist'
             target: '/root/www/wwwroot'
+            command_timeout: '10s'
             # target: ${{ secrets.REMOTE_TARGET }}
