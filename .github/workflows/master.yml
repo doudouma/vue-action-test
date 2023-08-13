@@ -42,5 +42,5 @@ jobs:
             password: ${{ secrets.REMOTE_PASS }}
             port: 22
             source: '.vitepress/dist'
-            target: '/root/www/wwwroot'
+            target: '/var/www/wwwroot'
             # target: ${{ secrets.REMOTE_TARGET }}
