@@ -33,8 +33,8 @@ jobs:
           run: yarn run docs:build
 
         - name: copy file via ssh password
-          # uses: appleboy/scp-action@209e8c05e0492f6ed6fe8a22dfcaefb083c4cf35
-          uses: appleboy/scp-action@master
+          uses: appleboy/scp-action@209e8c05e0492f6ed6fe8a22dfcaefb083c4cf35
+          # uses: appleboy/scp-action@master
           # uses: appleboy/scp-action@master
           with:
             host: ${{ secrets.REMOTE_HOST}}
@@ -42,5 +42,5 @@ jobs:
             password: ${{ secrets.REMOTE_PASS }}
             port: 22
             source: '.vitepress/dist'
-            target: '/var/www/wwwroot'
+            target: '/www/wwwroot'
             # target: ${{ secrets.REMOTE_TARGET }}
