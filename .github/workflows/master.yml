@@ -33,7 +33,7 @@ jobs:
           run: yarn run docs:build
 
         - name: copy file via ssh password
-          uses: appleboy/scp-action@v0.1.3
+          uses: appleboy/scp-action@master
           # uses: appleboy/scp-action@master
           with:
             host: ${{ secrets.REMOTE_HOST}}
