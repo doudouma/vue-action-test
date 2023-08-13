@@ -38,6 +38,6 @@ jobs:
             host: ${{ secrets.REMOTE_HOST}}
             username: ${{ secrets.REMOTE_USER }}
             password: ${{ secrets.REMOTE_PASS }}
-            port: 23334
+            port: 22
             source: '.vitepress/dist'
             target: ${{ secrets.REMOTE_TARGET }}
