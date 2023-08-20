@@ -1,5 +1,5 @@
 {
-    "index_name": "chodocs", // 填写自己的索引名称
+    "index_name": "http://note.superjy.cn/", // 填写自己的索引名称
     "start_urls": ["https://www.superjy.cn/"], // 填写自己的网站地址
     "rateLimit": 8,
     "maxDepth": 10,
