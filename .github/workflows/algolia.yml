@@ -16,4 +16,4 @@ jobs:
         env:
           APPLICATION_ID: ${{ secrets.APPLICATION_ID }}
           API_KEY: ${{ secrets.API_KEY }}
-      CONFIG: '{"index_name":"note.superjy.cn","start_urls":[{"url":"http://note.superjy.cn","selectors_key":"blog"}],"selectors":{"blog":{"lvl0":"h1","lvl1":"h2","lvl2":"h3","lvl3":"h4","lvl4":"h5","lvl5":"#description","text":"#content"}}}'
+          CONFIG: '{"index_name":"note.superjy.cn","start_urls":[{"url":"http://note.superjy.cn","selectors_key":"blog"}],"selectors":{"blog":{"lvl0":"h1","lvl1":"h2","lvl2":"h3","lvl3":"h4","lvl4":"h5","lvl5":"#description","text":"#content"}}}'
