@@ -11,7 +11,7 @@ export default defineConfig({
     algolia: {
       appId: "1K6FEL350T", // 需要替换
       apiKey: "21a4a77c64c2e01c96e104e72117e332", // 需要替换
-      indexName: "chodocs", // 需要替换
+      indexName: "note.superjy.cn", // 需要替换
       placeholder: "Search docs",
       buttonText: "search",
     },
