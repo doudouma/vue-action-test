@@ -2,7 +2,7 @@ import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "My Awesome Project",
+  title: "AI客服",
   description: "A VitePress Site",
   themeConfig: {
     // search: {
@@ -11,23 +11,27 @@ export default defineConfig({
     algolia: {
       appId: "1K6FEL350T", // 需要替换
       apiKey: "21a4a77c64c2e01c96e104e72117e332", // 需要替换
-      indexName: "note.superjy.cn", // 需要替换
-      placeholder: "Search docs",
-      buttonText: "search",
+      indexName: "superjy", // 需要替换
+      placeholder: "全文搜索",
+      translations: {
+        button: {
+          buttonText: "搜索文档",
+        },
+      },
     },
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: "Home", link: "/" },
-      { text: "Examples", link: "/markdown-examples" },
-      { text: "test", link: "/test" },
+      { text: "首页", link: "/" },
+      { text: "AI客服介绍", link: "/markdown-examples" },
+      { text: "AI工具", link: "/ai" },
     ],
 
     sidebar: [
       {
-        text: "Examples",
+        text: "AI客服介绍",
         items: [
-          { text: "Markdown Examples", link: "/markdown-examples" },
-          { text: "Runtime API Examples", link: "/api-examples" },
+          { text: "AI客服", link: "/markdown-examples" },
+          { text: "联系我们", link: "/api-examples" },
         ],
       },
     ],
@@ -56,7 +60,7 @@ export default defineConfig({
       "script",
       {},
       `
-      setTimeout(()=>embedChatbot(),100)
+      setTimeout(()=>embedChatbot(),200)
        `,
     ],
   ],
