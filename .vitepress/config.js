@@ -4,6 +4,7 @@ import { defineConfig } from "vitepress";
 export default defineConfig({
   title: "AI客服",
   description: "A VitePress Site",
+  lang: "zh-CH",
   themeConfig: {
     // search: {
     //   provider: "local",
