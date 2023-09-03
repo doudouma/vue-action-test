@@ -2,8 +2,8 @@ import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "AI客服",
-  description: "A VitePress Site",
+  title: "我的世界",
+  description: "My AI World",
   lang: "zh-CH",
   themeConfig: {
     // search: {
@@ -21,17 +21,13 @@ export default defineConfig({
       },
     },
     // https://vitepress.dev/reference/default-theme-config
-    nav: [
-      { text: "首页", link: "/" },
-      { text: "AI客服介绍", link: "/markdown-examples" },
-      { text: "AI工具", link: "/ai" },
-    ],
+    nav: [{ text: "首页", link: "/" }],
 
     sidebar: [
       {
-        text: "AI客服介绍",
         items: [
-          { text: "AI客服", link: "/markdown-examples" },
+          { text: "AI导航", link: "/ai" },
+          { text: "Qwik学习", link: "/qwik" },
           { text: "联系我们", link: "/api-examples" },
         ],
       },
